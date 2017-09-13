@@ -4,11 +4,13 @@ import edu.princeton.cs.algs4.StdRandom;
 
 public class RandomizedQueue<Item> implements Iterable<Item>{
     private int N;
+    private int capacity;
     private Item[] rq;
 
     public RandomizedQueue() {
         N = 0;
-        rq = (Item[]) new Object[1];
+        capacity = 1;
+        rq = (Item[]) new Object[capacity];
     }
 
     public boolean isEmpty() {
@@ -16,7 +18,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
     }
 
     private boolean isFull() {
-        return N == rq.length;
+        return N == capacity;
     }
 
     public int size() {
@@ -25,15 +27,16 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
 
     public void enqueue(Item item) {
         if (item == null) throw new IllegalArgumentException();
-        if (isFull()) resize(2*rq.length);
+        if (isFull()) resize(2*capacity);
         rq[N++] = item;
-    } 
+    }
 
     private void resize(int n) {
         Item[] copy = (Item[]) new Object[n];
         for (int i = 0; i < N; i++)
             copy[i] = rq[i];
         rq = copy;
+        capacity = n;
     }
 
     private int randomIndex() {
@@ -46,7 +49,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
         Item temp = rq[index];
         rq[index] = rq[--N];
         rq[N] = null;
-        if (N == 4 * rq.length) resize(rq.length / 2);
+        if (capacity > 4*N) resize(capacity / 2);
         return temp;
     }
 
@@ -83,19 +86,12 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
         rq.enqueue("c");
         rq.enqueue("d");
         rq.enqueue("e");
-
         for (String s: rq) {
             System.out.println(s);
         }
-
-        rq.enqueue("e");
+        System.out.println(rq.dequeue());
         rq.enqueue("f");
         rq.enqueue("g");
-        rq.enqueue("a");
-        rq.enqueue("b");
-        rq.enqueue("c");
-        rq.enqueue("d");
-        rq.enqueue("e");
         System.out.println(rq.dequeue());
         System.out.println(rq.dequeue());
         System.out.println(rq.size());
