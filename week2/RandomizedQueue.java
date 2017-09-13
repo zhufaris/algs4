@@ -9,7 +9,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
 
     public RandomizedQueue() {
         N = 0;
-        capacity = 1;
+        capacity = 2;
         rq = (Item[]) new Object[capacity];
     }
 
@@ -26,9 +26,10 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
     }
 
     public void enqueue(Item item) {
+        if (item == null) throw new IllegalArgumentException();
         if (isFull()) resize(2*capacity);
         rq[N++] = item;
-    }
+    } 
 
     private void resize(int n) {
         Item[] copy = (Item[]) new Object[n];
@@ -69,6 +70,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
 
         public Item next() {
             index++;
+            if (index >= N) throw new NoSuchElementException();
             return rq[index];
         }
 
