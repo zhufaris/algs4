@@ -1,3 +1,9 @@
 *.class
 *.jar
 *.zip
+*.txt
+*.png
+out\*
+.idea\*
+.vscode\*
+*.iml

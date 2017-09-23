@@ -14,6 +14,7 @@ public class FastCollinearPoints {
         checkNull(points);
         checkRepeating(points);
         this.copy = Arrays.copyOf(this.points, this.points.length);
+
         getAllSegment();
     }
 
@@ -41,19 +42,26 @@ public class FastCollinearPoints {
     }
  
     private void getSegment(Point p) {
-        copy = Arrays.copyOf(points, points.length);
         Arrays.sort(copy, p.slopeOrder());
         double slope;
         int i = 1;
         while (i < copy.length) {
             slope = p.slopeTo(copy[i]);
             int j = i + 1;  
-            while (j < copy.length && slope == p.slopeTo(copy[j])) j++;
-            if (j - i >= 3 && p.compareTo(copy[i]) < 0) {
+            while ( j < copy.length && slope == p.slopeTo(copy[j])) j++;
+            if (j - i >= 3 && checkOrder(i, j-1)) {
                 segments.add(new LineSegment(p, copy[j - 1]));
             }
             i = j;
         }
+    }
+
+    private boolean checkOrder(int i, int j) {
+        if (copy[0].compareTo(copy[i]) > 0) return false;
+        for (int index = i; index < j; index++) {
+            if (copy[i].compareTo(copy[i + 1]) > 0) return false;
+        }
+        return true;
     }
 
 

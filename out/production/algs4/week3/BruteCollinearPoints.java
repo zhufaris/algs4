@@ -1,9 +1,11 @@
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class BruteCollinearPoints {
     private final ArrayList<LineSegment> segmentlist = new ArrayList<>();
     private final Point[] points;
+    private int length;
 
     /**
      * @param points
@@ -20,18 +22,19 @@ public class BruteCollinearPoints {
         for (int i = 0; i < this.points.length - 1; i++) {
             if (this.points[i].compareTo(this.points[i+1]) == 0) throw new IllegalArgumentException();
         }
+        this.length = 0;
         findSegments();
     }
 
     public int numberOfSegments() {
-        return segmentlist.size();
+        return length;
     }
 
     private void findSegments() {
         for (int p = 0; p < points.length - 3; p++)
         for (int q = p + 1; q < points.length - 2; q++)
         for (int r = q + 1; r < points.length - 1; r++)
-        for (int s = r + 1; s < points.length; s++) {
+        for (int s = r + 1; s < points.length; s++){
             if ((points[p].slopeTo(points[q]) == points[q].slopeTo(points[r]) 
             && points[q].slopeTo(points[r]) == points[r].slopeTo(points[s]))) {
                 segmentlist.add(new LineSegment(points[p], points[s]));
@@ -40,7 +43,8 @@ public class BruteCollinearPoints {
     }
 
     public LineSegment[] segments() {
-        LineSegment[] seg = new LineSegment[segmentlist.size()];
+        length = segmentlist.size();
+        LineSegment[] seg = new LineSegment[length];
         return segmentlist.toArray(seg);
     }
 }

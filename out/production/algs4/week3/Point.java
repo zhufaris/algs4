@@ -1,6 +1,5 @@
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
 
 public class Point implements Comparable<Point> {
     private final int x;
@@ -10,7 +9,7 @@ public class Point implements Comparable<Point> {
         this.y = y;
     }
     
-    public void draw() {
+    public void draw(){
         StdDraw.point(x, y);
     }
 
@@ -26,12 +25,7 @@ public class Point implements Comparable<Point> {
         validate(that);
         if (this.x == that.x && this.y == that.y) return Double.NEGATIVE_INFINITY;
         if (this.x == that.x) return Double.POSITIVE_INFINITY;
-        return absolute(1.0 * (that.y - this.y)/(that.x -this.x));
-    }
-
-    private double absolute(double x) {
-        if ( 1/ x > 0) return x;
-        else return -1 * x;
+        return 1.0 *(that.y - this.y)/(that.x -this.x);
     }
 
     @Override
@@ -51,7 +45,7 @@ public class Point implements Comparable<Point> {
             @Override
             public int compare(Point a, Point b) {
                 if (slopeTo(a) < slopeTo(b)) return -1;
-                else if (slopeTo(a) == slopeTo(b)) return 0;
+                else if(slopeTo(a) == slopeTo(b)) return 0;
                 else return 1; 
             }
         };
@@ -59,11 +53,5 @@ public class Point implements Comparable<Point> {
 
     public String toString() {
         return "(" + x + ", " + y + ")";
-    }
-
-    public static void main(String[] args) {
-        Point a = new Point(391, 263);
-        Point b = new Point(130, 263);
-        StdOut.println(b.slopeTo(a));
     }
 }
