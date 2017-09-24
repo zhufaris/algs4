@@ -68,6 +68,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+out/
+
 .idea/
 .vscode/
 out/production/algs4/.gitignore
