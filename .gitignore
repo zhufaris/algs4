@@ -1,0 +1,108 @@
+*.class
+*.jar
+*.zip
+*.txt
+*.png
+out\
+.idea\
+.vscode\
+*.iml
+### Java template
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+### Linux template
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+### Windows template
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+.idea/
+.vscode/
+out/production/algs4/.gitignore
+out/production/algs4/.idea/libraries/
+out/production/algs4/.idea/misc.xml
+out/production/algs4/.idea/modules.xml
+out/production/algs4/.idea/vcs.xml
+out/production/algs4/.idea/workspace.xml
+out/production/algs4/.vscode/
+out/production/algs4/BruteCollinearPointsTest.java
+out/production/algs4/FastCollinearPointsTest.java
+out/production/algs4/LineSegment.java
+out/production/algs4/Week2/Deque.java
+out/production/algs4/Week2/Permutation.java
+out/production/algs4/Week2/RandomizedQueue.java
+out/production/algs4/java-algs4
+out/production/algs4/java-cos226
+out/production/algs4/java-coursera
+out/production/algs4/javac-algs4
+out/production/algs4/javac-cos226
+out/production/algs4/javac-coursera
+out/production/algs4/week1/Percolation.java
+out/production/algs4/week1/PercolationStats.java
+out/production/algs4/week1/java-algs4
+out/production/algs4/week1/java-cos226
+out/production/algs4/week1/java-coursera
+out/production/algs4/week1/javac-algs4
+out/production/algs4/week1/javac-cos226
+out/production/algs4/week1/javac-coursera
+out/production/algs4/week3/.idea/misc.xml
+out/production/algs4/week3/.idea/modules.xml
+out/production/algs4/week3/.idea/workspace.xml
+out/production/algs4/week3/BruteCollinearPoints.java
+out/production/algs4/week3/BruteCollinearPointsTest.java
+out/production/algs4/week3/FastCollinearPoints.java
+out/production/algs4/week3/FastCollinearPointsTest.java
+out/production/algs4/week3/LineSegment.java
+out/production/algs4/week3/Point.java
