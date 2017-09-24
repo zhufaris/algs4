@@ -56,7 +56,6 @@ public class FastCollinearPoints {
         }
     }
 
-
     private void getAllSegment() {
         for (Point p: points) {
             getSegment(p);
